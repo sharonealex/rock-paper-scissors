@@ -17,3 +17,35 @@
  * 
  * 
  */
+
+// initialise the stats
+var stats = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+}
+var options = ["R", "P", "S"]
+
+function playGame() {
+    var userChoice = window.prompt("R, P, S");
+    if (userChoice != undefined) {
+       
+        var randomIndex = Math.floor(Math.random() * options.length);
+        var computerChoice = options[randomIndex];
+      
+      switch (userChoice.toUpperCase){
+          case 'R':
+              {
+                  if (computerChoice == 'R'){
+                      stats.ties ++
+                  }
+              }
+              
+      }
+
+        }
+    }
+
+
+        playGame();
+
