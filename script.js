@@ -28,7 +28,7 @@ var options = ["ROCK", "PAPER", "SCISSORS"]
 
 function playGame() {
     var userChoice = window.prompt("ROCK, PAPER, SCISSORS");
-    if (userChoice != undefined) {
+    if (userChoice) {
 
         var randomIndex = Math.floor(Math.random() * options.length);
         var computerChoice = options[randomIndex];
@@ -89,6 +89,6 @@ function playGame() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", playGame);
 
-playGame();
 
