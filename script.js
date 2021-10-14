@@ -24,28 +24,71 @@ var stats = {
     losses: 0,
     ties: 0
 }
-var options = ["R", "P", "S"]
+var options = ["ROCK", "PAPER", "SCISSORS"]
 
 function playGame() {
-    var userChoice = window.prompt("R, P, S");
+    var userChoice = window.prompt("ROCK, PAPER, SCISSORS");
     if (userChoice != undefined) {
-       
+
         var randomIndex = Math.floor(Math.random() * options.length);
         var computerChoice = options[randomIndex];
-      
-      switch (userChoice.toUpperCase){
-          case 'R':
-              {
-                  if (computerChoice == 'R'){
-                      stats.ties ++
-                  }
-              }
-              
-      }
-
+        alert ("computer played " + computerChoice)
+        switch (userChoice.toUpperCase()) {
+            case 'ROCK':
+                {
+                    if (computerChoice == 'ROCK') {
+                        stats.ties ++;
+                        alert("Its a Tie!")
+                    } else if (computerChoice == 'PAPER') {
+                        stats.losses ++;
+                        alert("You lost!")
+                    } else if (computerChoice == 'SCISSORS') {
+                        stats.wins ++;
+                        alert("You Win!")
+                    }
+                    break;
+                }
+            case 'PAPER':
+                {
+                    if (computerChoice == 'ROCK') {
+                        stats.wins ++;
+                        alert("You Win!")
+                    } else if (computerChoice == 'PAPER') {
+                        stats.ties ++;
+                        alert("Its a Tie!")
+                    } else if (computerChoice == 'SCISSORS') {
+                        stats.losses ++;
+                        alert("You lost!")
+                    }
+                    break;
+                }    
+            case 'SCISSORS':
+                {
+                    if (computerChoice == 'ROCK') {
+                        stats.losses ++;
+                        alert("You lost!")
+                    } else if (computerChoice == 'PAPER') {
+                        stats.wins ++;
+                        alert("You Win!")
+                    } else if (computerChoice == 'SCISSORS') {
+                        stats.ties ++;
+                        alert("Its a Tie!")
+                    }
+                    break;
+                }        
         }
+
+        alert('Heres the stats \n wins: ' + stats.wins + '\n losses: ' + stats.losses + '\n ties ' + stats.ties )
+        var toPlay = window.confirm('click ok to keep playing');
+        if(toPlay){
+            playGame();
+        }
+        console.log("game ended")
+
+
     }
+}
 
 
-        playGame();
+playGame();
 
