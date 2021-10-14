@@ -28,7 +28,7 @@ var options = ["ROCK", "PAPER", "SCISSORS"]
 
 function playGame() {
     var userChoice = window.prompt("ROCK, PAPER, SCISSORS");
-    if (userChoice) {
+    if (options.includes(userChoice.toUpperCase())) {
 
         var randomIndex = Math.floor(Math.random() * options.length);
         var computerChoice = options[randomIndex];
